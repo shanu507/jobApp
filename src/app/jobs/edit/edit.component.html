@@ -1,0 +1,59 @@
+<div class="container mt-3">
+  <form [formGroup]="jobForm">
+    <label for="jobNumber">Job Number: </label>
+    <input
+      class="form-control mb-3"
+      id="jobNumber"
+      type="text"
+      formControlName="job_number"
+    />
+
+    <label for="jobTitle">Job title: </label>
+    <input
+      class="form-control mb-3"
+      id="jobTitle"
+      type="text"
+      formControlName="job_title"
+    />
+
+    <label for="jobStart">Job start date: </label>
+    <input
+      class="form-control mb-3"
+      id="jobStart"
+      type="text"
+      formControlName="job_start_date"
+    />
+    <label for="jobClose">Job close date: </label>
+    <input
+      class="form-control mb-3"
+      id="jobClose"
+      type="text"
+      formControlName="job_close_date"
+    />
+    <label for="experience">Experience required: </label>
+    <input
+      class="form-control mb-3"
+      id="experience"
+      type="text"
+      formControlName="experience_required"
+    />
+    <label for="noOfOpenings">No. of openings: </label>
+    <input
+      class="form-control mb-3"
+      id="noOfOpenings"
+      type="number"
+      formControlName="number_of_openings"
+    />
+    <label for="jobNotes">Job notes: </label>
+    <input
+      class="form-control mb-3"
+      id="jobNotes"
+      type="text"
+      formControlName="job_notes"
+    />
+  </form>
+
+  <button mat-button (click)="udapte()" class="btn btn-dark" type="submit">
+    {{ editMode ? "Update" : "Save" }}
+  </button>
+</div>

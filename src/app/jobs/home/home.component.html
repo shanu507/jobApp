@@ -1,0 +1,63 @@
+<div class="mt-3 m-5">
+  <table class="table">
+    <thead>
+      <th *ngFor="let jobHeader of tableHeaders" scope="row">
+       <tr>{{ jobHeader }}</tr> 
+      </th>
+    </thead>
+    <tbody *ngFor="let job of jobs$ | async">
+      <tr>
+        <th scope="row">{{ job.id }}</th>
+        <td>{{ job.job_title }}</td>
+        <td>{{ job.job_number }}</td>
+        <td>{{ job.job_start_date }}</td>
+        <td>{{ job.job_close_date }}</td>
+        <td>{{ job.experience_required }}</td>
+        <td>{{ job.number_of_openings }}</td>
+        <td>{{ job.job_notes }}</td>
+        <td>
+          <div class="card-body">
+            <a [routerLink]="['/edit', job.id]" class="btn btn-dark"
+              >Edit Job</a
+            >
+            <button class="btn btn-dark" (click)="openDeleteModal(job.id)">
+              Delete
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="deleteModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">Are sure to delete this item?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-danger" (click)="delete()">
+          Confirm Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
